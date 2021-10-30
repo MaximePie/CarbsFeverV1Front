@@ -2,37 +2,68 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin: 0.25em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h4 {
+  margin: 0.5em 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Ingredient__create {
+  margin: .5em;
   display: flex;
   flex-direction: column;
+  align-items: start;
+}
+
+.Ingredient__create input {
+  margin-left: 0.5em;
+}
+
+.Ingredient__create button {
+  margin-top: 1em;
+  width: 100px;
+}
+
+.Ingredient {
+  display: grid;
+  grid-template-columns: 24px 1fr 80px 80px;
+  grid-column-gap: 1em;
+  height: 80px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-top: 1px gray solid;
+  border-bottom: 1px gray solid;
+  padding: 0 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.Ingredient__grams-input {
+  width: 70%;
+  text-align: end;
+  margin-right: 0.25em
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Ingredient__info h4 {
+  margin: 0.5em 0;
 }
+
+.InputGroup {
+  margin: 0.25rem 0;
+}
+
+.InputGroup i {
+  color: #b5b5b5;
+  font-size: 0.8em;
+  margin-right: 1em;
+  vertical-align: text-bottom;
+}
+
+.InputGroup input {
+  min-width: 120px;
+  outline: none;
+}
+
+.InputGroup input::placeholder {
+  color: #b5b5b5;
+}
+
