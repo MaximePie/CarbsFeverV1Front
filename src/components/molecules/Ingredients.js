@@ -43,14 +43,16 @@ export default function Ingredients({onCarbsUpdate}) {
         </label>
         <button onClick={saveNewIngredient}>Enregistrer</button>
       </div>
-      {ingredients.map((ingredient, key) =>
-        <Ingredient
-          key={key}
-          ingredient={ingredient}
-          onValidate={addCarbs}
-          onDeleteIngredient={() => deleteIngredient(ingredient._id)}
-        />
-      )}
+      <div className="Ingredients__list">
+        {ingredients.map((ingredient, key) =>
+          <Ingredient
+            key={key}
+            ingredient={ingredient}
+            onValidate={addCarbs}
+            onDeleteIngredient={() => deleteIngredient(ingredient._id)}
+          />
+        )}
+      </div>
     </div>
   );
 
@@ -83,8 +85,8 @@ export default function Ingredients({onCarbsUpdate}) {
     })
   }
 
-  function addCarbs(carbs) {
-    axiosInstance.post('/user/addCarbs', {carbs}).then(response => {
+  async function addCarbs(carbs) {
+    return axiosInstance.post('/user/addCarbs', {carbs}).then(response => {
       onCarbsUpdate(response.data.user);
     })
   }

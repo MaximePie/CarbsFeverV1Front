@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 export default function Ingredient({ingredient, onValidate, onDeleteIngredient}) {
   const {name, carbsPerHundred, defaultPortionWeight} = ingredient;
   const [portionWeight, setPortionWeight] = useState(defaultPortionWeight || 0);
+  // hasBeenValidated is a state to tell if the user has entered and validated the desired amount of carbs.
+  const [hasBeenValidated, setValidationState] = useState(false);
   const carbs = carbsPerHundred / 100 * portionWeight;
   return (
     <div className="Ingredient">
@@ -22,7 +24,13 @@ export default function Ingredient({ingredient, onValidate, onDeleteIngredient})
         />
         g
       </div>
-      <button onClick={() => onValidate(carbs)}>Ajouter</button>
+      <button onClick={validateCarbsAddition}>Ajouter {hasBeenValidated && "✔"}</button>
     </div>
   );
+
+  function validateCarbsAddition() {
+    onValidate(carbs).then(() => {
+      setValidationState(true);
+    })
+  }
 }

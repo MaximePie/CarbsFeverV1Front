@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 }
 
 p {
@@ -8,6 +11,20 @@ p {
 
 h4 {
   margin: 0.5em 0;
+}
+
+.UserScore {
+  position: fixed;
+  width: 100vw;
+  background-color: white;
+}
+
+.Ingredients {
+  margin-top: 8em;
+}
+
+.Ingredients__list {
+  overflow-y: auto;
 }
 
 .Ingredient__create {
