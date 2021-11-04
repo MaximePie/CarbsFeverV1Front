@@ -86,7 +86,7 @@ export default function Ingredients({onCarbsUpdate}) {
   }
 
   async function addCarbs(carbs) {
-    return axiosInstance.post('/user/addCarbs', {carbs}).then(response => {
+    return axiosInstance.post('/user/addCarbs', {carbs: Math.round(carbs)}).then(response => {
       onCarbsUpdate(response.data.user);
     })
   }
